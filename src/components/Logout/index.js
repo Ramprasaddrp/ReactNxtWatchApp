@@ -13,7 +13,6 @@ const Logout = props => (
   <NxtThemeContext.Consumer>
     {value => {
       const {isDarkTheme} = value
-      const theme = isDarkTheme ? 'dark' : ''
       const redirectToLoginPage = () => {
         Cookies.remove('jwt_token')
         const {history} = props
@@ -24,14 +23,14 @@ const Logout = props => (
         <Popup
           modal
           trigger={
-            <LogoutButton type="button" theme={theme}>
+            <LogoutButton type="button" theme={isDarkTheme}>
               Logout
             </LogoutButton>
           }
         >
           {close => (
-            <ModalContainer theme={theme}>
-              <ModalText theme={theme}>
+            <ModalContainer theme={isDarkTheme}>
+              <ModalText theme={isDarkTheme}>
                 Are you sure you want to logout ?
               </ModalText>
               <ModalButton onClick={() => close()} type="button">

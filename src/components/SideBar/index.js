@@ -15,9 +15,8 @@ const SideBar = () => (
   <NxtThemeContext.Consumer>
     {value => {
       const {isDarkTheme, sideNavList} = value
-      const theme = isDarkTheme ? 'dark' : ''
       return (
-        <SideBarContainer theme={theme}>
+        <SideBarContainer theme={isDarkTheme}>
           <li>
             <SideNavBar>
               {sideNavList.map(eachItem => (
@@ -33,7 +32,7 @@ const SideBar = () => (
           </li>
           <li>
             <SideNavBar as="div">
-              <Heading theme={theme}>CONTACT US</Heading>
+              <Heading theme={isDarkTheme}>CONTACT US</Heading>
               <ContactIcons>
                 <Icon
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
@@ -48,7 +47,7 @@ const SideBar = () => (
                   alt="linked in logo"
                 />
               </ContactIcons>
-              <Description theme={theme}>
+              <Description theme={isDarkTheme}>
                 Enjoy! Now to see your channels and recommendations!
               </Description>
             </SideNavBar>

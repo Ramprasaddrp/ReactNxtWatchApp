@@ -19,9 +19,8 @@ const VideoThumbnail = props => {
     <NxtThemeContext.Consumer>
       {value => {
         const {isDarkTheme} = value
-        const theme = isDarkTheme ? 'dark' : ''
         return (
-          <ThumbnailContainer theme={theme}>
+          <ThumbnailContainer theme={isDarkTheme}>
             <Link style={{textDecoration: 'none'}} to={`/videos/${details.id}`}>
               <ThumbnailImage
                 src={details.thumbnailUrl}
@@ -33,14 +32,14 @@ const VideoThumbnail = props => {
                   alt="channel logo"
                 />
                 <div>
-                  <Title theme={theme}>{details.title}</Title>
-                  <Name theme={theme}>{details.channel.name}</Name>
+                  <Title theme={isDarkTheme}>{details.title}</Title>
+                  <Name theme={isDarkTheme}>{details.channel.name}</Name>
                   <ViewsAndTimeContainer>
-                    <Name theme={theme}>{details.viewCount} views</Name>
-                    <Name theme={theme} dot as="div">
+                    <Name theme={isDarkTheme}>{details.viewCount} views</Name>
+                    <Name theme={isDarkTheme} dot as="div">
                       <VscCircleFilled />
                     </Name>
-                    <Name theme={theme}>
+                    <Name theme={isDarkTheme}>
                       {a[1]} {a[2]} ago
                     </Name>
                   </ViewsAndTimeContainer>

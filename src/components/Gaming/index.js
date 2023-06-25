@@ -91,13 +91,12 @@ class Gaming extends Component {
       <NxtThemeContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const theme = isDarkTheme ? 'dark' : ''
           return (
-            <GamesContainer theme={theme} data-testid="gaming">
+            <GamesContainer theme={isDarkTheme} data-testid="gaming">
               <Header />
               <SideBarAndContentContainer>
                 <SideBar />
-                {this.switchRender(theme)}
+                {this.switchRender(isDarkTheme)}
               </SideBarAndContentContainer>
             </GamesContainer>
           )

@@ -188,16 +188,15 @@ class VideoItemDetails extends Component {
       <NxtThemeContext.Consumer>
         {value => {
           const {isDarkTheme, savedVideos, addToSavedVideos} = value
-          const theme = isDarkTheme ? 'dark' : ''
           return (
             <VideoItemDetailsContainer
               data-testid="videoItemDetails"
-              theme={theme}
+              theme={isDarkTheme}
             >
               <Header />
               <VideoItemAndSideBar>
                 <SideBar />
-                {this.switchRender(theme, savedVideos, addToSavedVideos)}
+                {this.switchRender(isDarkTheme, savedVideos, addToSavedVideos)}
               </VideoItemAndSideBar>
             </VideoItemDetailsContainer>
           )

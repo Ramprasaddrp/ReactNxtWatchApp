@@ -93,34 +93,36 @@ class Login extends Component {
       <NxtThemeContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const theme = isDarkTheme ? 'dark' : ''
           return (
-            <LoginContainer theme={theme} onSubmit={this.postLoginDetails}>
-              <LoginForm theme={theme}>
+            <LoginContainer
+              theme={isDarkTheme}
+              onSubmit={this.postLoginDetails}
+            >
+              <LoginForm theme={isDarkTheme}>
                 <NxtWedLogo
                   src={
-                    isDarkTheme
+                    isDarkTheme === 'dark'
                       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                   }
                   alt="nxt watch logo"
                 />
-                <InputLabel theme={theme} htmlFor="user_name">
+                <InputLabel theme={isDarkTheme} htmlFor="user_name">
                   USERNAME
                 </InputLabel>
                 <UserInput
-                  theme={theme}
+                  theme={isDarkTheme}
                   type="text"
                   id="user_name"
                   onChange={this.updateUsername}
                   value={username}
                   placeholder="Username"
                 />
-                <InputLabel theme={theme} htmlFor="password">
+                <InputLabel theme={isDarkTheme} htmlFor="password">
                   PASSWORD
                 </InputLabel>
                 <UserInput
-                  theme={theme}
+                  theme={isDarkTheme}
                   type={displayPassword ? 'text' : 'password'}
                   id="password"
                   onChange={this.updatePassword}
@@ -133,7 +135,7 @@ class Login extends Component {
                     type="checkbox"
                     onClick={this.togglePasswordDisplay}
                   />
-                  <CheckboxLabel theme={theme} htmlFor="show-password">
+                  <CheckboxLabel theme={isDarkTheme} htmlFor="show-password">
                     Show Password
                   </CheckboxLabel>
                 </CheckboxContainer>

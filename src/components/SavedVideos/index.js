@@ -19,10 +19,8 @@ const SavedVideos = () => (
   <NxtThemeContext.Consumer>
     {value => {
       const {isDarkTheme, savedVideos} = value
-      const theme = isDarkTheme ? 'dark' : ''
-      console.log(savedVideos)
       return (
-        <SavedVideosContainer theme={theme} data-testid="savedVideos">
+        <SavedVideosContainer theme={isDarkTheme} data-testid="savedVideos">
           <Header />
           <SideBarAndContentContainer>
             <SideBar />
@@ -30,11 +28,11 @@ const SavedVideos = () => (
               <NoSavedVideos />
             ) : (
               <SavedVideosContentContainer>
-                <SavedVideosBanner data-testid="banner" theme={theme}>
-                  <BannerLogoContainer theme={theme}>
+                <SavedVideosBanner data-testid="banner" theme={isDarkTheme}>
+                  <BannerLogoContainer theme={isDarkTheme}>
                     <HiFire />
                   </BannerLogoContainer>
-                  <BannerTitle theme={theme}>Saved Videos</BannerTitle>
+                  <BannerTitle theme={isDarkTheme}>Saved Videos</BannerTitle>
                 </SavedVideosBanner>
                 <SavedVideosList>
                   {savedVideos.map(eachItem => (

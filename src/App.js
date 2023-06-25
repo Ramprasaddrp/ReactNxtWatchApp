@@ -26,7 +26,7 @@ import Gaming from './components/Gaming'
 // Replace your code here
 class App extends Component {
   state = {
-    isDarkTheme: false,
+    isDarkTheme: 'light',
     sideNavList: [
       {id: 1, logo: AiFillHome, path: '/', text: 'Home'},
       {id: 2, logo: HiFire, path: '/trending', text: 'Trending'},
@@ -58,7 +58,9 @@ class App extends Component {
   }
 
   toggleTheme = () => {
-    this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
+    this.setState(prevState => ({
+      isDarkTheme: prevState.isDarkTheme === 'dark' ? 'light' : 'dark',
+    }))
   }
 
   render() {

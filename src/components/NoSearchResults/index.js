@@ -16,15 +16,16 @@ const NoSearchResults = props => {
     <NxtThemeContext.Consumer>
       {value => {
         const {isDarkTheme} = value
-        const theme = isDarkTheme ? 'dark' : ''
         return (
           <NoSearchResultsViewContainer>
             <NoSearchResultsImage
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
               alt="no videos"
             />
-            <ErrorMessage theme={theme}>No Search results found</ErrorMessage>
-            <FailureCause theme={theme}>
+            <ErrorMessage theme={isDarkTheme}>
+              No Search results found
+            </ErrorMessage>
+            <FailureCause theme={isDarkTheme}>
               Try different key words or remove search filter
             </FailureCause>
             <RetryButton type="button" onClick={onClickRetry}>

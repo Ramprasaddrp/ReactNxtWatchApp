@@ -8,12 +8,10 @@ const NavItem = props => {
     <NxtThemeContext.Consumer>
       {value => {
         const {isDarkTheme} = value
-
-        const theme = isDarkTheme ? 'dark' : ''
         return (
-          <SideNavItem theme={theme} active={active}>
+          <SideNavItem theme={isDarkTheme} active={active}>
             <details.logo />
-            <NavItemText theme={theme}>{details.text}</NavItemText>
+            <NavItemText theme={isDarkTheme}>{details.text}</NavItemText>
           </SideNavItem>
         )
       }}

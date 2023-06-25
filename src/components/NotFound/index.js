@@ -14,23 +14,24 @@ const NotFound = () => (
   <NxtThemeContext.Consumer>
     {value => {
       const {isDarkTheme} = value
-      const theme = isDarkTheme ? 'dark' : ''
       return (
         <Container>
           <Header />
-          <SideBarAndContentContainer theme={theme}>
+          <SideBarAndContentContainer theme={isDarkTheme}>
             <SideBar />
-            <NotFoundContainer theme={theme}>
+            <NotFoundContainer theme={isDarkTheme}>
               <NotFoundImage
                 src={
-                  isDarkTheme
+                  isDarkTheme === 'dark'
                     ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png'
                     : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png'
                 }
                 alt="not found"
               />
-              <NotFoundMessage theme={theme}>Page Not Found</NotFoundMessage>
-              <NotFoundCause theme={theme}>
+              <NotFoundMessage theme={isDarkTheme}>
+                Page Not Found
+              </NotFoundMessage>
+              <NotFoundCause theme={isDarkTheme}>
                 We are sorry, the page you requested could not be found.
               </NotFoundCause>
             </NotFoundContainer>

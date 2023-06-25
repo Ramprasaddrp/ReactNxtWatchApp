@@ -14,7 +14,6 @@ const Game = props => {
     <NxtThemeContext.Consumer>
       {value => {
         const {isDarkTheme} = value
-        const theme = isDarkTheme ? 'dark' : ''
         return (
           <Link style={{textDecoration: 'none'}} to={`/videos/${details.id}`}>
             <GameItem>
@@ -22,8 +21,8 @@ const Game = props => {
                 src={details.thumbnailUrl}
                 alt="video thumbnail"
               />
-              <GameTitle theme={theme}>{details.title}</GameTitle>
-              <GameDetails theme={theme}>
+              <GameTitle theme={isDarkTheme}>{details.title}</GameTitle>
+              <GameDetails theme={isDarkTheme}>
                 {details.viewCount} Watching Worldwide
               </GameDetails>
             </GameItem>

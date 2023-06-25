@@ -19,7 +19,6 @@ const VideoItem = props => {
     <NxtThemeContext.Consumer>
       {value => {
         const {isDarkTheme} = value
-        const theme = isDarkTheme ? 'dark' : ''
         return (
           <Link style={{textDecoration: 'none'}} to={`/videos/${details.id}`}>
             <Video>
@@ -28,16 +27,16 @@ const VideoItem = props => {
                 alt="video thumbnail"
               />
               <VideoDescriptionContainer>
-                <VideoTitle theme={theme}>{details.title}</VideoTitle>
-                <VideoDetails theme={theme}>
+                <VideoTitle theme={isDarkTheme}>{details.title}</VideoTitle>
+                <VideoDetails theme={isDarkTheme}>
                   {details.channel.name}
                 </VideoDetails>
                 <ViewsAndTimeContainer>
-                  <VideoDetails>{details.viewCount}</VideoDetails>
-                  <VideoDetails theme={theme} dot as="div">
+                  <VideoDetails>{details.viewCount} views</VideoDetails>
+                  <VideoDetails theme={isDarkTheme} dot as="div">
                     <VscCircleFilled />
                   </VideoDetails>
-                  <VideoDetails theme={theme}>
+                  <VideoDetails theme={isDarkTheme}>
                     {a[1]} {a[2]} ago
                   </VideoDetails>
                 </ViewsAndTimeContainer>

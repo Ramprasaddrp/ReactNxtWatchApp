@@ -134,10 +134,9 @@ class Home extends Component {
       <NxtThemeContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const theme = isDarkTheme ? 'dark' : ''
 
           return (
-            <HomeContainer theme={theme} data-testid="home">
+            <HomeContainer theme={isDarkTheme} data-testid="home">
               <Header />
               <SideBarAndContentContainer>
                 <SideBar />
@@ -167,13 +166,13 @@ class Home extends Component {
                   <MainContentContainer>
                     <SearchContainer onSubmit={this.searchVideo}>
                       <SearchInputElement
-                        theme={theme}
+                        theme={isDarkTheme}
                         type="search"
                         placeholder="Search"
                         value={searchInput}
                         onChange={this.onChangeSearchInput}
                       />
-                      <SearchButton theme={theme} type="submit">
+                      <SearchButton theme={isDarkTheme} type="submit">
                         <AiOutlineSearch />
                       </SearchButton>
                     </SearchContainer>

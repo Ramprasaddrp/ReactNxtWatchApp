@@ -17,17 +17,16 @@ const Header = () => (
   <NxtThemeContext.Consumer>
     {value => {
       const {isDarkTheme, toggleTheme, isModalOpen} = value
-      const theme = isDarkTheme ? 'dark' : ''
       const modal = isModalOpen ? 'modal' : ''
       console.log(modal)
       return (
-        <HeaderContainer modal={modal} theme={theme}>
+        <HeaderContainer modal={modal} theme={isDarkTheme}>
           <ListItem>
             <Link to="/">
               <NxtLogo
                 alt="website logo"
                 src={
-                  isDarkTheme
+                  isDarkTheme === 'dark'
                     ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                     : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                 }
@@ -39,11 +38,11 @@ const Header = () => (
               <ListItem>
                 <Button
                   data-testid="theme"
-                  theme={theme}
+                  theme={isDarkTheme}
                   onClick={toggleTheme}
                   type="button"
                 >
-                  {isDarkTheme ? <FiSun /> : <FaMoon />}
+                  {isDarkTheme === 'dark' ? <FiSun /> : <FaMoon />}
                 </Button>
               </ListItem>
               <ListItem>

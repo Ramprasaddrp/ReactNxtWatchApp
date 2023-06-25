@@ -1,7 +1,7 @@
 import React from 'react'
 
 const NxtThemeContext = React.createContext({
-  isDarkTheme: false,
+  isDarkTheme: 'light',
   toggleTheme: () => {},
   sideNavList: [],
   savedVideos: [],

@@ -54,7 +54,6 @@ class TrendingVideos extends Component {
     const url = 'https://apis.ccbp.in/videos/trending'
     const response = await fetch(url, options)
     const data = await response.json()
-    console.log(data.videos)
     if (response.ok) {
       const fetchedData = data.videos.map(eachItem => this.updateData(eachItem))
       this.setState({status: apiStatus.success, trendingVideos: fetchedData})
@@ -96,13 +95,12 @@ class TrendingVideos extends Component {
       <NxtThemeContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const theme = isDarkTheme ? 'dark' : ''
           return (
-            <TrendingVideosContainer theme={theme} data-testid="trending">
+            <TrendingVideosContainer theme={isDarkTheme} data-testid="trending">
               <Header />
               <SideBarAndContentContainer>
                 <SideBar />
-                {this.switchRender(theme)}
+                {this.switchRender(isDarkTheme)}
               </SideBarAndContentContainer>
             </TrendingVideosContainer>
           )
