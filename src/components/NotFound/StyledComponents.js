@@ -4,6 +4,7 @@ export const Container = styled.div`
   margin: 0px;
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto';
 `
 export const SideBarAndContentContainer = styled.div`
   display: flex;
@@ -27,11 +28,9 @@ export const NotFoundImage = styled.img`
 `
 export const NotFoundMessage = styled.h1`
   font-size: 20px;
-  font-family: 'Roboto';
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
 `
 export const NotFoundCause = styled.p`
   font-size: 18px;
-  font-family: 'Roboto';
   color: ${props => (props.theme === 'dark' ? '#94a3b8' : '#64748b')};
 `

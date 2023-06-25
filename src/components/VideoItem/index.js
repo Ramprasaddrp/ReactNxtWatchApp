@@ -7,10 +7,9 @@ import {
   Video,
   VideoThumbnailImage,
   VideoDescriptionContainer,
-  VideoTitle,
-  VideoDetails,
   ViewsAndTimeContainer,
 } from './StyledComponents'
+import {Title, Name} from '../VideoThumbnail/StyledComponents'
 
 const VideoItem = props => {
   const {details} = props
@@ -27,18 +26,16 @@ const VideoItem = props => {
                 alt="video thumbnail"
               />
               <VideoDescriptionContainer>
-                <VideoTitle theme={isDarkTheme}>{details.title}</VideoTitle>
-                <VideoDetails theme={isDarkTheme}>
-                  {details.channel.name}
-                </VideoDetails>
+                <Title theme={isDarkTheme}>{details.title}</Title>
+                <Name theme={isDarkTheme}>{details.channel.name}</Name>
                 <ViewsAndTimeContainer>
-                  <VideoDetails>{details.viewCount} views</VideoDetails>
-                  <VideoDetails theme={isDarkTheme} dot as="div">
+                  <Name>{details.viewCount} views</Name>
+                  <Name theme={isDarkTheme} dot as="div">
                     <VscCircleFilled />
-                  </VideoDetails>
-                  <VideoDetails theme={isDarkTheme}>
+                  </Name>
+                  <Name theme={isDarkTheme}>
                     {a[1]} {a[2]} ago
-                  </VideoDetails>
+                  </Name>
                 </ViewsAndTimeContainer>
               </VideoDescriptionContainer>
             </Video>

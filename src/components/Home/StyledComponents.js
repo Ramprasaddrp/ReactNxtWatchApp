@@ -6,6 +6,7 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   background-color: ${props =>
     props.theme === 'dark' ? '#181818' : '#f9f9f9'};
+  font-family: 'Roboto';
 `
 export const SideBarAndContentContainer = styled.div`
   display: flex;
@@ -25,13 +26,18 @@ export const BannerContainer = styled.div`
 `
 export const BannerTextContainer = styled.div`
   width: 40vw;
+  @media (max-width: 769px) {
+    width: 70vw;
+  }
 `
 export const WebSiteLogo = styled.img`
   width: 150px;
+  @media (max-width: 769px) {
+    width: 100px;
+  }
 `
 export const BannerText = styled.h1`
   font-size: 18px;
-  font-family: 'Roboto';
   color: #000000;
   font-weight: 400;
 `
@@ -41,7 +47,6 @@ export const GetButton = styled.button`
   border: 1px solid #000000;
   padding: 8px 16px 8px 16px;
   font-size: 16px;
-  font-family: 'Roboto';
 `
 export const CloseIcon = styled.button`
   color: '#000000';
@@ -74,6 +79,9 @@ export const SearchInputElement = styled.input`
     font-size: 16px;
     font-weight: 300;
     opacity: 0.5;
+  }
+  @media (max-width: 769px) {
+    width: 100%;
   }
 `
 export const SearchButton = styled.button`

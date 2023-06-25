@@ -8,6 +8,7 @@ export const LoginContainer = styled.div`
   background-color: ${props =>
     props.theme === 'dark' ? '#383838' : '#f8fafc'};
   height: 100vh;
+  font-family: 'Roboto';
 `
 export const LoginForm = styled.form`
   display: flex;
@@ -28,7 +29,6 @@ export const NxtWedLogo = styled.img`
 
 export const InputLabel = styled.label`
   font-size: 14px;
-  font-family: 'Roboto';
   font-weight: 500;
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#94a3b8')};
   padding-top: 30px;
@@ -62,7 +62,6 @@ export const InputCheckBox = styled.input`
 `
 
 export const CheckboxLabel = styled.label`
-  font-family: 'Roboto';
   font-size: 16px;
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#181818')};
 `
@@ -70,7 +69,6 @@ export const LoginButton = styled.button`
   background-color: #3b82f6;
   color: #ffffff;
   padding: 10px;
-  font-family: 'Roboto';
   font-size: 16px;
   border: none;
   border-radius: 10px;
@@ -79,7 +77,6 @@ export const LoginButton = styled.button`
 `
 export const ErrorMsg = styled.p`
   color: #ff0000;
-  font-family: 'Roboto';
   font-size: 12px;
   margin: 0px;
 `

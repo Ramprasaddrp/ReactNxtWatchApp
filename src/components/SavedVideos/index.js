@@ -4,16 +4,18 @@ import {
   SavedVideosContainer,
   SideBarAndContentContainer,
   SavedVideosContentContainer,
-  SavedVideosBanner,
-  BannerLogoContainer,
-  BannerTitle,
-  SavedVideosList,
 } from './StyledComponents'
 
 import Header from '../Header'
 import SideBar from '../SideBar'
 import NoSavedVideos from '../NoSavedVideos'
 import VideoItem from '../VideoItem'
+import {
+  TrendingVideosBanner,
+  TrendingLogoContainer,
+  TrendingTitle,
+  TrendingVideosList,
+} from '../Trending/StyledComponents'
 
 const SavedVideos = () => (
   <NxtThemeContext.Consumer>
@@ -28,17 +30,19 @@ const SavedVideos = () => (
               <NoSavedVideos />
             ) : (
               <SavedVideosContentContainer>
-                <SavedVideosBanner data-testid="banner" theme={isDarkTheme}>
-                  <BannerLogoContainer theme={isDarkTheme}>
+                <TrendingVideosBanner data-testid="banner" theme={isDarkTheme}>
+                  <TrendingLogoContainer theme={isDarkTheme}>
                     <HiFire />
-                  </BannerLogoContainer>
-                  <BannerTitle theme={isDarkTheme}>Saved Videos</BannerTitle>
-                </SavedVideosBanner>
-                <SavedVideosList>
+                  </TrendingLogoContainer>
+                  <TrendingTitle theme={isDarkTheme}>
+                    Saved Videos
+                  </TrendingTitle>
+                </TrendingVideosBanner>
+                <TrendingVideosList>
                   {savedVideos.map(eachItem => (
                     <VideoItem key={eachItem.id} details={eachItem} />
                   ))}
-                </SavedVideosList>
+                </TrendingVideosList>
               </SavedVideosContentContainer>
             )}
           </SideBarAndContentContainer>

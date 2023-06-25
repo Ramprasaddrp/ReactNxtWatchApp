@@ -1,12 +1,8 @@
 import {Link} from 'react-router-dom'
 
 import NxtThemeContext from '../../Context'
-import {
-  GameItem,
-  GameThumbnailImage,
-  GameTitle,
-  GameDetails,
-} from './StyledComponent'
+import {GameItem, GameThumbnailImage} from './StyledComponent'
+import {Title, Name} from '../VideoThumbnail/StyledComponents'
 
 const Game = props => {
   const {details} = props
@@ -21,10 +17,10 @@ const Game = props => {
                 src={details.thumbnailUrl}
                 alt="video thumbnail"
               />
-              <GameTitle theme={isDarkTheme}>{details.title}</GameTitle>
-              <GameDetails theme={isDarkTheme}>
+              <Title theme={isDarkTheme}>{details.title}</Title>
+              <Name theme={isDarkTheme}>
                 {details.viewCount} Watching Worldwide
-              </GameDetails>
+              </Name>
             </GameItem>
           </Link>
         )

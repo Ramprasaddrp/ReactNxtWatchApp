@@ -6,9 +6,6 @@ import {
   GamesContainer,
   SideBarAndContentContainer,
   GamesContentContainer,
-  GamesBanner,
-  GamesLogoContainer,
-  GamesTitle,
   GamesList,
 } from './StyledComponents'
 
@@ -16,6 +13,11 @@ import Header from '../Header'
 import SideBar from '../SideBar'
 import LoaderBox from '../LoaderBox'
 import Game from '../Game'
+import {
+  TrendingVideosBanner,
+  TrendingLogoContainer,
+  TrendingTitle,
+} from '../Trending/StyledComponents'
 
 const apiStatus = {
   loading: 'LOADING',
@@ -66,12 +68,12 @@ class Gaming extends Component {
       case 'SUCCESS':
         return (
           <GamesContentContainer>
-            <GamesBanner data-testid="banner" theme={theme}>
-              <GamesLogoContainer theme={theme}>
+            <TrendingVideosBanner data-testid="banner" theme={theme}>
+              <TrendingLogoContainer theme={theme}>
                 <SiYoutubegaming />
-              </GamesLogoContainer>
-              <GamesTitle theme={theme}>Trending Videos</GamesTitle>
-            </GamesBanner>
+              </TrendingLogoContainer>
+              <TrendingTitle theme={theme}>Trending Videos</TrendingTitle>
+            </TrendingVideosBanner>
             <GamesList>
               {gamesList.map(eachItem => (
                 <Game key={eachItem.id} details={eachItem} />

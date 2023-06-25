@@ -19,15 +19,14 @@ import {
   VideoItemDetailsContainer,
   VideoItemAndSideBar,
   VideoContainer,
-  VideoTitle,
   Video,
   SmallContainer,
-  SmallDetails,
   HorizontalLine,
   LikeButton,
   ChannelLogo,
   Description,
 } from './StyledComponents'
+import {Name, Title} from '../VideoThumbnail/StyledComponents'
 
 const apiStatus = {
   loading: 'LOADING',
@@ -123,14 +122,14 @@ class VideoItemDetails extends Component {
             controls
           />
         </Video>
-        <VideoTitle theme={theme}>{videoDetails.title}</VideoTitle>
+        <Title theme={theme}>{videoDetails.title}</Title>
         <SmallContainer spaceBetween>
           <SmallContainer>
-            <SmallDetails>{videoDetails.viewCount} views</SmallDetails>
-            <SmallDetails dot>
+            <Name>{videoDetails.viewCount} views</Name>
+            <Name dot>
               <VscCircleFilled />
-            </SmallDetails>
-            <SmallDetails>{time}</SmallDetails>
+            </Name>
+            <Name>{time}</Name>
           </SmallContainer>
           <SmallContainer>
             <LikeButton onClick={this.toggleLike} like={isLiked} type="button">
@@ -158,10 +157,10 @@ class VideoItemDetails extends Component {
             alt="channel logo"
           />
           <SmallContainer column>
-            <VideoTitle theme={theme}>{videoDetails.channel.name}</VideoTitle>
-            <SmallDetails theme={theme}>
+            <Title theme={theme}>{videoDetails.channel.name}</Title>
+            <Name theme={theme}>
               {videoDetails.channel.subscriberCount} Subscribers
-            </SmallDetails>
+            </Name>
             <Description theme={theme}>{videoDetails.description}</Description>
           </SmallContainer>
         </SmallContainer>

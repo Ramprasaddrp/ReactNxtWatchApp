@@ -29,8 +29,6 @@ class App extends Component {
   addToSavedVideos = videoDetails => {
     const {savedVideos} = this.state
     const isPresent = savedVideos.includes(videoDetails)
-    console.log(isPresent, 'ram')
-
     if (isPresent) {
       const index = savedVideos.indexOf(videoDetails)
       savedVideos.splice(index, 1)

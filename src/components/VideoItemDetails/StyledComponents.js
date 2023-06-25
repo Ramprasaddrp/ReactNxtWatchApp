@@ -16,41 +16,30 @@ export const VideoContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 84vw;
+  width: 100%;
 `
 
 export const Video = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 60vh;
+  height: 30vw;
+  @media (max-width: 769px) {
+    height: 40vw;
+  }
 `
 
-export const VideoTitle = styled.h1`
-  color: ${props => (props.theme === 'dark' ? '#f9f9f9' : '#212121')};
-  font-family: 'Roboto';
-  font-size: 20px;
-  margin: 0px;
-  padding-top: 20px;
-  align-self: flex-start;
-`
 export const HorizontalLine = styled.hr`
   width: 100%;
   border-top: 1px solid
     ${props => (props.theme === 'dark' ? '#94a3b8' : '#64748b')};
   margin: 0px;
 `
-export const SmallDetails = styled.p`
-  color: ${props => (props.theme === 'dark' ? '#94a3b8' : '#64748b')};
-  font-family: 'Roboto';
-  font-size: ${props => (props.dot ? '8px' : '16px')};
-  margin-right: 10px;
-`
 export const SmallContainer = styled.div`
   display: flex;
   flex-direction: ${props => (props.column ? 'column' : 'row')};
   align-items: ${props => (props.column ? 'flex-start' : 'center')};
-  margin: 5px 0px 5px 0px;
+  margin: 0px;
   justify-content: ${props =>
     props.spaceBetween ? 'space-between' : 'flex-start'};
 `
@@ -60,22 +49,31 @@ export const LikeButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-family: 'Roboto';
   font-size: 16px;
   display: flex;
+  padding: 10px 10px 0px 0px;
   align-items: center;
+  @media (max-width: 769px) {
+    font-size: 12px;
+  }
 `
 export const ChannelLogo = styled.img`
   margin: 20px 20px 0px 0px;
   width: 60px;
   height: 60px;
+  align-self: flex-start;
+  @media (max-width: 769px) {
+    width: 40px;
+    height: 40px;
+  }
 `
 
 export const Description = styled.p`
   color: ${props => (props.theme === 'dark' ? '#f1f5f9' : '#7e858e')};
-  font-family: 'Roboto';
   font-size: 20px;
-  margin: 0px;
-  padding-top: 30px;
+  margin: 20px 0px 0px 0px;
   align-self: flex-start;
+  @media (max-width: 769px) {
+    font-size: 14px;
+  }
 `

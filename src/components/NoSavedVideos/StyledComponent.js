@@ -16,11 +16,9 @@ export const NoSavedVideosImage = styled.img`
 `
 export const ErrorMessage = styled.h1`
   font-size: 20px;
-  font-family: 'Roboto';
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
 `
 export const NoSavedVideosCause = styled.p`
   font-size: 18px;
-  font-family: 'Roboto';
   color: ${props => (props.theme === 'dark' ? '#94a3b8' : '#64748b')};
 `

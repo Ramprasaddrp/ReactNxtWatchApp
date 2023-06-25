@@ -21,6 +21,9 @@ export const SideNavItem = styled.li`
     return a
   }};
   font-size: 20px;
+  @media (max-height: 769px) {
+    font-size: 16px;
+  }
 `
 export const NavItemText = styled.p`
   font-family: 'Roboto';
@@ -28,4 +31,7 @@ export const NavItemText = styled.p`
   padding: 0px;
   margin: 10px;
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
+  @media (max-height: 769px) {
+    font-size: 12px;
+  }
 `
