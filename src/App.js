@@ -1,10 +1,6 @@
 import {Component} from 'react'
 
 import {Route, Redirect, Switch} from 'react-router-dom'
-import {AiFillHome} from 'react-icons/ai'
-import {HiFire} from 'react-icons/hi'
-import {CgPlayListAdd} from 'react-icons/cg'
-import {SiYoutubegaming} from 'react-icons/si'
 import NxtThemeContext from './Context'
 
 import ProtectedRoute from './components/ProtectedRoute'
@@ -27,17 +23,6 @@ import Gaming from './components/Gaming'
 class App extends Component {
   state = {
     isDarkTheme: 'light',
-    sideNavList: [
-      {id: 1, logo: AiFillHome, path: '/', text: 'Home'},
-      {id: 2, logo: HiFire, path: '/trending', text: 'Trending'},
-      {id: 3, logo: SiYoutubegaming, path: '/gaming', text: 'Gaming'},
-      {
-        id: 4,
-        logo: CgPlayListAdd,
-        path: '/saved-videos',
-        text: 'Saved Videos',
-      },
-    ],
     savedVideos: [],
   }
 
@@ -64,13 +49,12 @@ class App extends Component {
   }
 
   render() {
-    const {isDarkTheme, sideNavList, savedVideos} = this.state
+    const {isDarkTheme, savedVideos} = this.state
     return (
       <NxtThemeContext.Provider
         value={{
           isDarkTheme,
           toggleTheme: this.toggleTheme,
-          sideNavList,
           addToSavedVideos: this.addToSavedVideos,
           savedVideos,
         }}

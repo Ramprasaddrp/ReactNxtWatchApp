@@ -1,4 +1,8 @@
 import {Link} from 'react-router-dom'
+import {AiFillHome} from 'react-icons/ai'
+import {HiFire} from 'react-icons/hi'
+import {CgPlayListAdd} from 'react-icons/cg'
+import {SiYoutubegaming} from 'react-icons/si'
 import NxtThemeContext from '../../Context'
 
 import NavItem from '../NavItem'
@@ -11,10 +15,22 @@ import {
   Description,
 } from './StyledComponents'
 
+const sideNavList = [
+  {id: 1, logo: AiFillHome, path: '/', text: 'Home'},
+  {id: 2, logo: HiFire, path: '/trending', text: 'Trending'},
+  {id: 3, logo: SiYoutubegaming, path: '/gaming', text: 'Gaming'},
+  {
+    id: 4,
+    logo: CgPlayListAdd,
+    path: '/saved-videos',
+    text: 'Saved Videos',
+  },
+]
+
 const SideBar = () => (
   <NxtThemeContext.Consumer>
     {value => {
-      const {isDarkTheme, sideNavList} = value
+      const {isDarkTheme} = value
       return (
         <SideBarContainer theme={isDarkTheme}>
           <li>
