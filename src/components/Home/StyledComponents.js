@@ -4,11 +4,11 @@ export const HomeContainer = styled.div`
   margin: 0px;
   display: flex;
   flex-direction: column;
+  background-color: ${props =>
+    props.theme === 'dark' ? '#181818' : '#f9f9f9'};
 `
 export const SideBarAndContentContainer = styled.div`
   display: flex;
-  background-color: ${props =>
-    props.theme === 'dark' ? '#181818' : '#f9f9f9'};
 `
 export const HomeContentContainer = styled.div`
   display: flex;

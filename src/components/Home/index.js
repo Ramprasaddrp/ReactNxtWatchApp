@@ -137,23 +137,30 @@ class Home extends Component {
           const theme = isDarkTheme ? 'dark' : ''
 
           return (
-            <HomeContainer>
+            <HomeContainer theme={theme} data-testid="home">
               <Header />
-              <SideBarAndContentContainer theme={theme}>
+              <SideBarAndContentContainer>
                 <SideBar />
                 <HomeContentContainer>
-                  <BannerContainer display={display ? 'display' : ''}>
+                  <BannerContainer
+                    data-testid="banner"
+                    display={display ? 'display' : ''}
+                  >
                     <BannerTextContainer>
                       <WebSiteLogo
                         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                        alt="website logo"
+                        alt="nxt watch logo"
                       />
                       <BannerText>
                         Buy Nxt Watch Premium prepaid plans with UPI
                       </BannerText>
                       <GetButton type="button">GET IT NOW</GetButton>
                     </BannerTextContainer>
-                    <CloseIcon type="button" onClick={this.closeBanner}>
+                    <CloseIcon
+                      data-testid="close"
+                      type="button"
+                      onClick={this.closeBanner}
+                    >
                       <IoMdClose />
                     </CloseIcon>
                   </BannerContainer>

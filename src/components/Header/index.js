@@ -25,7 +25,7 @@ const Header = () => (
           <ListItem>
             <Link to="/">
               <NxtLogo
-                alt="nxt watch logo"
+                alt="website logo"
                 src={
                   isDarkTheme
                     ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
@@ -37,7 +37,12 @@ const Header = () => (
           <ListItem>
             <NavContainer>
               <ListItem>
-                <Button theme={theme} onClick={toggleTheme} type="button">
+                <Button
+                  data-testid="theme"
+                  theme={theme}
+                  onClick={toggleTheme}
+                  type="button"
+                >
                   {isDarkTheme ? <FiSun /> : <FaMoon />}
                 </Button>
               </ListItem>

@@ -5,7 +5,7 @@ export const VideoItemDetailsContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   background-color: ${props =>
-    props.theme === 'dark' ? '#181818' : '#f9f9f9'};
+    props.theme === 'dark' ? '#0f0f0f' : '#f9f9f9'};
 `
 
 export const VideoItemAndSideBar = styled.div`
@@ -26,7 +26,7 @@ export const Video = styled.div`
   height: 60vh;
 `
 
-export const VideoTitle = styled.div`
+export const VideoTitle = styled.h1`
   color: ${props => (props.theme === 'dark' ? '#f9f9f9' : '#212121')};
   font-family: 'Roboto';
   font-size: 20px;
@@ -38,6 +38,7 @@ export const HorizontalLine = styled.hr`
   width: 100%;
   border-top: 1px solid
     ${props => (props.theme === 'dark' ? '#94a3b8' : '#64748b')};
+  margin: 0px;
 `
 export const SmallDetails = styled.p`
   color: ${props => (props.theme === 'dark' ? '#94a3b8' : '#64748b')};
@@ -47,21 +48,15 @@ export const SmallDetails = styled.p`
 `
 export const SmallContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: ${props => (props.column ? 'column' : 'row')};
+  align-items: ${props => (props.column ? 'flex-start' : 'center')};
   margin: 5px 0px 5px 0px;
   justify-content: ${props =>
     props.spaceBetween ? 'space-between' : 'flex-start'};
 `
 export const LikeButton = styled.button`
-  color: ${props => {
-    if (props.like === 'active' || props.save === 'Saved') {
-      return '#3b82f6'
-    }
-    if (props.theme === 'dark') {
-      return '#94a3b8'
-    }
-    return '#64748b'
-  }};
+  color: ${props =>
+    props.like === 'active' || props.save === 'Saved' ? '#2563eb' : '#64748b'};
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -69,4 +64,18 @@ export const LikeButton = styled.button`
   font-size: 16px;
   display: flex;
   align-items: center;
+`
+export const ChannelLogo = styled.img`
+  margin: 20px 20px 0px 0px;
+  width: 60px;
+  height: 60px;
+`
+
+export const Description = styled.p`
+  color: ${props => (props.theme === 'dark' ? '#f1f5f9' : '#7e858e')};
+  font-family: 'Roboto';
+  font-size: 20px;
+  margin: 0px;
+  padding-top: 30px;
+  align-self: flex-start;
 `

@@ -1,6 +1,6 @@
 import {Component} from 'react'
 
-import {Route, Switch} from 'react-router-dom'
+import {Route, Redirect, Switch} from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiFire} from 'react-icons/hi'
 import {CgPlayListAdd} from 'react-icons/cg'
@@ -16,6 +16,10 @@ import Home from './components/Home'
 import VideoItemDetails from './components/VideoItemDetails'
 
 import './App.css'
+import NotFound from './components/NotFound'
+import SavedVideos from './components/SavedVideos'
+import TrendingVideos from './components/Trending'
+import Gaming from './components/Gaming'
 
 // custom hook to get the current pathname in React
 
@@ -39,8 +43,11 @@ class App extends Component {
 
   addToSavedVideos = videoDetails => {
     const {savedVideos} = this.state
-    const index = savedVideos.indexOf(videoDetails)
-    if (index > -1) {
+    const isPresent = savedVideos.includes(videoDetails)
+    console.log(isPresent, 'ram')
+
+    if (isPresent) {
+      const index = savedVideos.indexOf(videoDetails)
       savedVideos.splice(index, 1)
       this.setState({savedVideos})
     } else {
@@ -74,6 +81,11 @@ class App extends Component {
             path="/videos/:id"
             component={VideoItemDetails}
           />
+          <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
+          <ProtectedRoute exact path="/trending" component={TrendingVideos} />
+          <ProtectedRoute exact path="/Not-Found" component={NotFound} />
+          <ProtectedRoute exact path="/gaming" component={Gaming} />
+          <Redirect to="/Not-Found" />
         </Switch>
       </NxtThemeContext.Provider>
     )

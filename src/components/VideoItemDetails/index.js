@@ -12,6 +12,7 @@ import {formatDistanceToNow} from 'date-fns'
 import SideBar from '../SideBar'
 import Header from '../Header'
 import LoaderBox from '../LoaderBox'
+import FailureView from '../FailureView'
 
 import NxtThemeContext from '../../Context'
 import {
@@ -24,6 +25,8 @@ import {
   SmallDetails,
   HorizontalLine,
   LikeButton,
+  ChannelLogo,
+  Description,
 } from './StyledComponents'
 
 const apiStatus = {
@@ -69,7 +72,6 @@ class VideoItemDetails extends Component {
     const response = await fetch(url, options)
     const data = await response.json()
     const fetchedData = data.video_details
-    console.log(fetchedData)
     if (response.ok) {
       const updatedData = {
         channel: {
@@ -88,13 +90,11 @@ class VideoItemDetails extends Component {
       const a = formatDistanceToNow(new Date(updatedData.publishedAt)).split(
         ' ',
       )
-      console.log(a)
       this.setState({
         videoDetails: updatedData,
         status: apiStatus.success,
         time: `${a[1]} ${a[2]} ago`,
       })
-      console.log(updatedData)
     } else {
       this.setState({status: apiStatus.failure})
     }
@@ -152,6 +152,19 @@ class VideoItemDetails extends Component {
           </SmallContainer>
         </SmallContainer>
         <HorizontalLine />
+        <SmallContainer>
+          <ChannelLogo
+            src={videoDetails.channel.profileImageUrl}
+            alt="channel logo"
+          />
+          <SmallContainer column>
+            <VideoTitle theme={theme}>{videoDetails.channel.name}</VideoTitle>
+            <SmallDetails theme={theme}>
+              {videoDetails.channel.subscriberCount} Subscribers
+            </SmallDetails>
+            <Description theme={theme}>{videoDetails.description}</Description>
+          </SmallContainer>
+        </SmallContainer>
       </VideoContainer>
     )
   }
@@ -163,6 +176,8 @@ class VideoItemDetails extends Component {
         return <LoaderBox />
       case 'SUCCESS':
         return this.renderVideo(theme, savedVideos, addToSavedVideos)
+      case 'FAILURE':
+        return <FailureView />
       default:
         return null
     }
@@ -175,7 +190,10 @@ class VideoItemDetails extends Component {
           const {isDarkTheme, savedVideos, addToSavedVideos} = value
           const theme = isDarkTheme ? 'dark' : ''
           return (
-            <VideoItemDetailsContainer theme={theme}>
+            <VideoItemDetailsContainer
+              data-testid="videoItemDetails"
+              theme={theme}
+            >
               <Header />
               <VideoItemAndSideBar>
                 <SideBar />
