@@ -12,7 +12,7 @@ export const GameItem = styled.li`
 
 export const GameThumbnailImage = styled.img`
   width: 250px;
-  height: 30px;
+  height: 300px;
   margin-right: 10px;
   @media (max-width: 769px) {
     width: 145px;
