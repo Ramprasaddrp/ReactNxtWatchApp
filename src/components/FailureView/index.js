@@ -8,7 +8,7 @@ import {
 } from './StyledComponent'
 
 const FailureView = props => {
-  const {onClickFunction} = props
+  const {onClickFunction, text} = props
   const onClickRetry = () => {
     onClickFunction()
   }
@@ -29,9 +29,7 @@ const FailureView = props => {
             <ErrorMessage theme={isDarkTheme}>
               Oops! Something Went Wrong
             </ErrorMessage>
-            <FailureCause theme={isDarkTheme}>
-              We are having to complete your request. Please try again.
-            </FailureCause>
+            <FailureCause theme={isDarkTheme}>{text}</FailureCause>
             <RetryButton type="button" onClick={onClickRetry}>
               Retry
             </RetryButton>
