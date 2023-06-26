@@ -7,7 +7,7 @@ import {
   SideBarAndContentContainer,
   GamesContentContainer,
   GamesList,
-} from './StyledComponents'
+} from './StyledComponent'
 
 import Header from '../Header'
 import SideBar from '../SideBar'
@@ -17,7 +17,8 @@ import {
   TrendingVideosBanner,
   TrendingLogoContainer,
   TrendingTitle,
-} from '../Trending/StyledComponents'
+} from '../Trending/StyledComponent'
+import FailureView from '../FailureView'
 
 const apiStatus = {
   loading: 'LOADING',
@@ -29,7 +30,7 @@ class Gaming extends Component {
   state = {gamesList: [], status: apiStatus.loading}
 
   componentDidMount() {
-    this.getTrendingVideos()
+    this.getGamingVideos()
   }
 
   updateData = data => ({
@@ -39,7 +40,7 @@ class Gaming extends Component {
     viewCount: data.view_count,
   })
 
-  getTrendingVideos = async () => {
+  getGamingVideos = async () => {
     this.setState({status: apiStatus.loading})
     const jwtToken = Cookies.get('jwt_token')
     const options = {
@@ -72,7 +73,7 @@ class Gaming extends Component {
               <TrendingLogoContainer theme={theme}>
                 <SiYoutubegaming />
               </TrendingLogoContainer>
-              <TrendingTitle theme={theme}>Trending Videos</TrendingTitle>
+              <TrendingTitle theme={theme}>Gaming</TrendingTitle>
             </TrendingVideosBanner>
             <GamesList>
               {gamesList.map(eachItem => (
@@ -82,7 +83,12 @@ class Gaming extends Component {
           </GamesContentContainer>
         )
       case 'FAILURE':
-        return <LoaderBox />
+        return (
+          <FailureView
+            text="We are having some trouble"
+            onClickFunction={() => this.getGamingVideos()}
+          />
+        )
       default:
         return null
     }
