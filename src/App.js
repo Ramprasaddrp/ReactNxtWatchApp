@@ -28,11 +28,14 @@ class App extends Component {
 
   addToSavedVideos = videoDetails => {
     const {savedVideos} = this.state
-    const isPresent = savedVideos.includes(videoDetails)
-    if (isPresent) {
-      const index = savedVideos.indexOf(videoDetails)
-      savedVideos.splice(index, 1)
-      this.setState({savedVideos})
+    const filterList = savedVideos.filter(
+      eachItem => eachItem.id === videoDetails.id,
+    )
+    if (filterList.length !== 0) {
+      const NewList = savedVideos.filter(
+        eachItem => eachItem.id !== videoDetails.id,
+      )
+      this.setState({savedVideos: NewList})
     } else {
       this.setState(prevState => ({
         savedVideos: [...prevState.savedVideos, videoDetails],
@@ -67,9 +70,9 @@ class App extends Component {
           />
           <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
           <ProtectedRoute exact path="/trending" component={TrendingVideos} />
-          <ProtectedRoute exact path="/Not-Found" component={NotFound} />
+          <ProtectedRoute exact path="/bad-path" component={NotFound} />
           <ProtectedRoute exact path="/gaming" component={Gaming} />
-          <Redirect to="/Not-Found" />
+          <Redirect to="/bad-path" />
         </Switch>
       </NxtThemeContext.Provider>
     )
