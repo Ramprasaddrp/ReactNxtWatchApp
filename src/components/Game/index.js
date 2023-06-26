@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 
 import NxtThemeContext from '../../Context'
 import {GameItem, GameThumbnailImage} from './StyledComponent'
-import {Title, Name} from '../VideoThumbnail/StyledComponents'
+import {Title, Name} from '../VideoThumbnail/StyledComponent'
 
 const Game = props => {
   const {details} = props
